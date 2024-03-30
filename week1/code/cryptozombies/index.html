@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CryptoZombies front-end</title>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="web3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="cryptozombies_abi.js"></script>
+  </head>
+  <body>
+    <div id="txStatus"></div>
+    <div id="zombies"></div>
+
+    <script>
+        var cryptoZombies;
+
+        var userAccount;
+
+        function startApp(){
+            var cryptoZombiesAddress = "YOUR_CONTRACT_ADDRESS";
+            cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
+            var accountInterval = setInterval(function() {
+                // 检查账户是否切换
+                if (web3.eth.accounts[0] !== userAccount) {
+                    userAccount = web3.eth.accounts[0];
+                    // 调用一些方法来更新界面
+                    getZombiesByOwner(userAccount)
+                    .then(displayZombies);
+                }
+            }, 100);
+            var web3Infura = new Web3(new Web3.providers.WebsocketProvider("wss://mainnet.infura.io/ws"));
+            var czEvents = new web3Infura.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
+            czEvents.events.Transfer({ filter: { _to: userAccount } })
+                .on("data", function(event) {
+                let data = event.returnValues;
+                // 当前用户更新了一个僵尸！更新界面来显示
+                getZombiesByOwner(userAccount).then(displayZombies);
+                })
+                .on('error', console.error);
+        }
+        function displayZombies(ids) {
+            $("#zombies").empty();
+            for(id of ids){
+                // 在合约中查找僵尸数据，返回一个对象
+                getZombieDetails(id)
+                .then(function(zombie) {
+                // 用 ES6 的模板语法来向HTML中注入变量
+                // 把每一个都追加进 #zombies div
+                $("#zombies").append(`<div class="zombie">
+                    <ul>
+                    <li>Name: ${zombie.name}</li>
+                    <li>DNA: ${zombie.dna}</li>
+                    <li>Level: ${zombie.level}</li>
+                    <li>Wins: ${zombie.winCount}</li>
+                    <li>Losses: ${zombie.lossCount}</li>
+                    <li>Ready Time: ${zombie.readyTime}</li>
+                    </ul>
+                </div>`);
+                });
+            }
+        }
+
+        function createRandomZombie(name) {
+            // 这将需要一段时间，所以在界面中告诉用户这一点
+            // 事务被发送出去了
+            $("#txStatus").text("正在区块链上创建僵尸，这将需要一会儿...");
+            // 把事务发送到我们的合约:
+            return cryptoZombies.methods.createRandomZombie(name)
+            .send({ from: userAccount })
+            .on("receipt", function(receipt) {
+                $("#txStatus").text("成功生成了 " + name + "!");
+                // 事务被区块链接受了，重新渲染界面
+                getZombiesByOwner(userAccount).then(displayZombies);
+            })
+            .on("error", function(error) {
+                // 告诉用户合约失败了
+                $("#txStatus").text(error);
+            });
+        }
+
+        function feedOnKitty(zombieId,kittyId){
+            $("#txStatus").text("正在吃猫咪，这将需要一会儿...");
+            return cryptoZombies.methods.feedOnKitty(zombieId,kittyId)
+            .send({from:userAccount})
+            .on("receipt",function(receipt){
+                $("#txStatus").text("吃了一只猫咪并生成了一只新僵尸！");
+                getZombiesByOwner(userAccount).then(displayZombies);
+            })
+            .on("error",function(error){
+                $("#txStatus").text(error);
+            })
+        }
+
+        function levelUp(zombieId){
+            $("#txStatus").text("正在升级您的僵尸...");
+            return cryptoZombies.methods.levelUp(zombieId)
+            .send({from:userAccount,value:web3js.utils.toWei("0.001","ether")})
+            .on("receipt",function(receipt){
+                $("#txStatus").text("不得了了！僵尸成功升级啦！");
+            })
+            .on("error",function(error){
+                $("#txStatus").text(error);
+            })
+        }
+
+        function getZombieDetails(id) {
+            return cryptoZombies.methods.zombies(id).call()
+        }
+
+        function zombieToOwner(id){
+            return cryptoZombies.methods.zombieToOwner(id).call()
+        }
+
+        function getZombiesByOwner(owner){
+            return cryptoZombies.methods.getZombiesByOwner(owner).call()
+        }
+
+        window.addEventListener('load', function() {
+            // 检查web3是否已经注入到(Mist/MetaMask)
+            if (typeof web3 !== 'undefined') {
+                // 使用 Mist/MetaMask 的提供者
+                web3js = new Web3(web3.currentProvider);
+            } else {
+                // 处理用户没安装的情况， 比如显示一个消息
+                // 告诉他们要安装 MetaMask 来使用我们的应用
+
+            }
+
+        // 现在你可以启动你的应用并自由访问 Web3.js:
+        startApp()
+
+        
+
+    })  
+    </script>
+  </body>
+</html>
