@@ -14,29 +14,21 @@
     <script>
         var cryptoZombies;
 
-        var userAccount;
+        var userAccount = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
 
         function startApp(){
-            var cryptoZombiesAddress = "YOUR_CONTRACT_ADDRESS";
+            var cryptoZombiesAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
             cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
-            var accountInterval = setInterval(function() {
-                // 检查账户是否切换
-                if (web3.eth.accounts[0] !== userAccount) {
-                    userAccount = web3.eth.accounts[0];
-                    // 调用一些方法来更新界面
-                    getZombiesByOwner(userAccount)
-                    .then(displayZombies);
-                }
-            }, 100);
-            var web3Infura = new Web3(new Web3.providers.WebsocketProvider("wss://mainnet.infura.io/ws"));
-            var czEvents = new web3Infura.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
-            czEvents.events.Transfer({ filter: { _to: userAccount } })
-                .on("data", function(event) {
-                let data = event.returnValues;
-                // 当前用户更新了一个僵尸！更新界面来显示
-                getZombiesByOwner(userAccount).then(displayZombies);
-                })
-                .on('error', console.error);
+            getZombiesByOwner(userAccount);
+            // cryptoZombies.events.Transfer({ filter: { _to: userAccount } })
+            //     .on("data", function(event) {
+            //     let data = event.returnValues;
+            //     // 当前用户更新了一个僵尸！更新界面来显示
+            //     getZombiesByOwner(userAccount).then(displayZombies);
+            //     })
+            //     .on("error", function(error) {
+            //         console.log(error);
+            //     });
         }
         function displayZombies(ids) {
             $("#zombies").empty();
@@ -116,18 +108,11 @@
         }
 
         window.addEventListener('load', function() {
-            // 检查web3是否已经注入到(Mist/MetaMask)
-            if (typeof web3 !== 'undefined') {
-                // 使用 Mist/MetaMask 的提供者
-                web3js = new Web3(web3.currentProvider);
-            } else {
-                // 处理用户没安装的情况， 比如显示一个消息
-                // 告诉他们要安装 MetaMask 来使用我们的应用
 
-            }
-
-        // 现在你可以启动你的应用并自由访问 Web3.js:
-        startApp()
+            provider = new Web3.providers.HttpProvider('http://127.0.0.1:8545/');
+            web3js = new Web3(provider);
+            // 现在你可以启动你的应用并自由访问 Web3.js:
+            startApp()
 
         
 

@@ -1,0 +1,232 @@
+{
+	"compiler": {
+		"version": "0.4.19+commit.c4cbbb05"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_zombieId",
+						"type": "uint256"
+					},
+					{
+						"name": "_kittyId",
+						"type": "uint256"
+					}
+				],
+				"name": "feedOnKitty",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "zombies",
+				"outputs": [
+					{
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"name": "dna",
+						"type": "uint256"
+					},
+					{
+						"name": "level",
+						"type": "uint32"
+					},
+					{
+						"name": "readyTime",
+						"type": "uint32"
+					},
+					{
+						"name": "winCount",
+						"type": "uint16"
+					},
+					{
+						"name": "lossCount",
+						"type": "uint16"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "zombieToOwner",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "setKittyContractAddress",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "createRandomZombie",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "zombieId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "dna",
+						"type": "uint256"
+					}
+				],
+				"name": "NewZombie",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {
+				"transferOwnership(address)": {
+					"details": "Allows the current owner to transfer control of the contract to a newOwner.\r",
+					"params": {
+						"newOwner": "The address to transfer ownership to.\r"
+					}
+				}
+			}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/zombiefeeding.sol": "ZombieFeeding"
+		},
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ownable.sol": {
+			"keccak256": "0x9669dac17bf07f37966ad82d89b147ed7006cb9937bc1eca4957b73b0f72a136",
+			"urls": [
+				"bzzr://0d5b3eb0370a978d7852e84b9c31c234c44710fb03ea2f6eafbda9af3160f395"
+			]
+		},
+		"contracts/safemath.sol": {
+			"keccak256": "0x6fbc3d8ff7edeb4b06395f245c72ebe51789c93a8313d5335dcbc0bdce4c19e4",
+			"urls": [
+				"bzzr://1256e1270c7cd10f1fc36664c905f3aee5758ea9a908d6dafab91d350ffc52b0"
+			]
+		},
+		"contracts/zombiefactory.sol": {
+			"keccak256": "0x1457ce5dc9a071b9f257de8ec5f1f47fcd18a4efad6b3f86a08e64928ae895a7",
+			"urls": [
+				"bzzr://df2e3a54a5ec5f072dd68df18074479503ec1bfd14c89e6909e6caca2b9d2dd2"
+			]
+		},
+		"contracts/zombiefeeding.sol": {
+			"keccak256": "0x3ee2fb79403c51cd351f6d3027f052a85f02cc8bc4001c9152d52b5ed21cb7f1",
+			"urls": [
+				"bzzr://e759274497b15b970227917e32e93ff9cef436c5f31e6de5ee42d971c7fc03c9"
+			]
+		}
+	},
+	"version": 1
+}

@@ -15,9 +15,15 @@
 
 - [比特币白皮书解读](week1/比特币白皮书解读.md)
 - [以太坊](week1/以太坊.md)
+- [Solidity技巧](week1/Solidity技巧.md)
 
 ### 编程
 
-- solidity基础语法学习：
-  - [CryptoZombies](https://cryptozombies.io/zh/solidity)
-    - [代码](week1/code/cryptozombies)
+- [CryptoZombies](https://cryptozombies.io/zh/solidity)
+  - solidity基础 [代码](week1/code/cryptozombies)
+
+- [Chainlink课程](https://www.bilibili.com/video/BV1Ca411n7ta/)
+  - solidity基础 [代码](week1/code/chainlink_course)
+
+​	
+

@@ -1,0 +1,95 @@
+{
+	"compiler": {
+		"version": "0.4.19+commit.c4cbbb05"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {
+				"transferOwnership(address)": {
+					"details": "Allows the current owner to transfer control of the contract to a newOwner.\r",
+					"params": {
+						"newOwner": "The address to transfer ownership to.\r"
+					}
+				}
+			},
+			"title": "Ownable\r"
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ownable.sol": "Ownable"
+		},
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ownable.sol": {
+			"keccak256": "0x9669dac17bf07f37966ad82d89b147ed7006cb9937bc1eca4957b73b0f72a136",
+			"urls": [
+				"bzzr://0d5b3eb0370a978d7852e84b9c31c234c44710fb03ea2f6eafbda9af3160f395"
+			]
+		}
+	},
+	"version": 1
+}
