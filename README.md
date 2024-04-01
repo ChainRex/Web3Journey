@@ -21,9 +21,12 @@
 
 - [CryptoZombies](https://cryptozombies.io/zh/solidity)
   - solidity基础 [代码](week1/code/cryptozombies)
-
 - [Chainlink课程](https://www.bilibili.com/video/BV1Ca411n7ta/)
-  - solidity基础 [代码](week1/code/chainlink_course)
+  - 区块链基础(lesson 1)
+  - solidity基础(lesson 2 - lesson 4) [代码](week1/code/chainlink_course/solidity-basic)
+  - ether.js(lesson 5) [代码](week1/code/chainlink_course/ethers-simple-storage)
+  - Hardhat基础(lesson 6)[代码](week1/code/chainlink_course/hardhat-simple-storage)
+
 
 ​	
 
