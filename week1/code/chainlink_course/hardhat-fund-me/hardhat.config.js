@@ -4,9 +4,6 @@ require("@nomiclabs/hardhat-waffle")
 require("hardhat-gas-reporter")
 require("solidity-coverage")
 require("hardhat-deploy")
-const { ProxyAgent, setGlobalDispatcher } = require("undici")
-const proxyAgent = new ProxyAgent("http://127.0.0.1:10809")
-setGlobalDispatcher(proxyAgent)
 
 /**
  * @type import('hardhat/config').HardhatUserConfig

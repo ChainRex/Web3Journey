@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fund Me App</title>
+    </head>
+    <body>
+        <script src="./index.js" type="module"></script>
+        网络：Sepolia
+
+        <br />
+        合约地址：<a
+            href="https://sepolia.etherscan.io/address/0x6Eba5D84247F8FDb7c0862d17d994a1426c7FF0b"
+            >0x6Eba5D84247F8FDb7c0862d17d994a1426c7FF0b</a
+        >
+        <br />
+        <button id="connectButton">连接</button>
+        <br />
+        <br />
+
+        <button id="balaceButton">获取余额</button>
+        <label>余额：</label>
+        <span id="balance">0.0</span> ETH
+        <br />
+        <br />
+
+        <label>ETH Amount</label>
+        <input id="ethAmount" placeholder="1" />
+        <br />
+        <br />
+        <button id="fundButton">捐赠</button>
+        <br />
+        <br />
+
+        <button id="withdrawButton">提款</button>
+        <br />
+        <br />
+        <span id="msg"></span>
+    </body>
+</html>
