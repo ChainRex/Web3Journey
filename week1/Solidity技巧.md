@@ -29,3 +29,10 @@ address public immutable i_owner;
 if(msg.sender != i_owner){revert NotOwner();}
 ```
 
+### 减少storage变量的读写
+
+循环中对storage变量的读写可以修改为：先将storage变量拷贝出来存入memory，再读写memory，最后将memory拷贝回storage变量
+
+### 将public变量和函数改为private或internel
+
+### 使用revert异常处理而不是require

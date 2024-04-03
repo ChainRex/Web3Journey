@@ -25,8 +25,9 @@
   - 区块链基础(lesson 1)
   - solidity基础(lesson 2 - lesson 4) [代码](week1/code/chainlink_course/solidity-basic)
   - ether.js(lesson 5) [代码](week1/code/chainlink_course/ethers-simple-storage)
-  - Hardhat基础(lesson 6)[代码](week1/code/chainlink_course/hardhat-simple-storage)
+  - Hardhat基础 1(lesson 6)[代码](week1/code/chainlink_course/hardhat-simple-storage)
+  - Hardhat基础 2(lesson 7)[代码](week1/code/chainlink_course/hardhat-fund-me)
 
 
-​	
+​				
 
