@@ -28,3 +28,14 @@
   - Hardhat基础 1(lesson 6) [代码](week1/code/chainlink_course/hardhat-simple-storage)
   - Hardhat基础 2(lesson 7) [代码](week1/code/chainlink_course/hardhat-fund-me)
   - 简单Html页面实现链上交互(lesson 8) [代码](week1/code/chainlink_course/html-fund-me) | [演示](http://74.48.78.247:3000/)
+
+## WEEK 2
+
+### 阅读
+
+- [WTF Solidity](https://github.com/AmazingAng/WTF-Solidity) 1-30讲（入门、进阶）
+- [Defi Mooc](https://defi-learning.org/f22) Lecture 1
+
+### 编程
+
+- ERC20简单实现 [代码](week2/code/ERC20)
