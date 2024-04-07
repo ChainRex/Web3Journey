@@ -21,7 +21,7 @@
 
 - [CryptoZombies](https://cryptozombies.io/zh/solidity)
   - solidity基础 [代码](week1/code/cryptozombies)
-- [Chainlink课程](https://www.bilibili.com/video/BV1Ca411n7ta/)
+- [Chainlink课程(js版)](https://www.bilibili.com/video/BV1Ca411n7ta/)
   - 区块链基础(lesson 1)
   - solidity基础(lesson 2 - lesson 4)  [代码](week1/code/chainlink_course/solidity-basic)
   - ether.js(lesson 5)  [代码](week1/code/chainlink_course/ethers-simple-storage)
@@ -34,8 +34,12 @@
 ### 阅读
 
 - [WTF Solidity](https://github.com/AmazingAng/WTF-Solidity) 1-30讲（入门、进阶）
-- [Defi Mooc](https://defi-learning.org/f22) Lecture 1
+- [Defi Mooc](https://defi-learning.org/f22) Lecture 1/4/5/6 [笔记](week2/Defi Mooc.md)
 
 ### 编程
 
 - ERC20简单实现 [代码](week2/code/ERC20)
+
+# TODO
+
+- [ ] 看aave白皮书、合约源码 https://www.bilibili.com/video/BV1UF411Y7oU/ https://www.bilibili.com/video/BV1qR4y177Uk/
