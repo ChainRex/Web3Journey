@@ -27,7 +27,7 @@
   - ether.js(lesson 5)  [代码](week1/code/chainlink_course/ethers-simple-storage)
   - Hardhat基础 1(lesson 6) [代码](week1/code/chainlink_course/hardhat-simple-storage)
   - Hardhat基础 2(lesson 7) [代码](week1/code/chainlink_course/hardhat-fund-me)
-  - 简单Html页面实现链上交互(lesson 8) [代码](week1/code/chainlink_course/html-fund-me) | [演示](http://74.48.78.247:3000/)
+  - 简单Html页面实现链上交互(lesson 8) [代码](week1/code/chainlink_course/html-fund-me) | [演示](http://101.36.109.251:3000/)
 
 ## WEEK 2
 
