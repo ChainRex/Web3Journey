@@ -39,6 +39,10 @@
 ### 编程
 
 - ERC20简单实现 [代码](week2/code/ERC20)
+- [Chainlink Foundry Course](https://www.bilibili.com/video/BV13a4y1F7V3)
+  - Foundry 编译、部署(lesson 6) [代码](week2/code/foundry-f23/foundry-simple-storage-f23/)
+  - Foundry 众筹(lesson 7) [代码](week2/code/foundry-f23/foundry-fund-me-f23)
+
 
 # TODO
 

@@ -4,3 +4,9 @@
 [submodule "week2/code/foundry-f23/foundry-fund-me-f23/lib/forge-std"]
 	path = week2/code/foundry-f23/foundry-fund-me-f23/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "week2/code/foundry-f23/foundry-fund-me-f23/lib/chainlink-brownie-contracts"]
+	path = week2/code/foundry-f23/foundry-fund-me-f23/lib/chainlink-brownie-contracts
+	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
+[submodule "week2/code/foundry-f23/foundry-fund-me-f23/lib/foundry-devops"]
+	path = week2/code/foundry-f23/foundry-fund-me-f23/lib/foundry-devops
+	url = https://github.com/Cyfrin/foundry-devops
