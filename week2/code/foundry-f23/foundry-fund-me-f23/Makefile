@@ -31,7 +31,7 @@ snapshot :; forge snapshot
 
 format :; forge fmt
 
-anvil :; anvil -m 'test test test test test test test test test test test junk' --steps-tracing --block-time 1
+anvil :; anvil --host 0.0.0.0
 
 NETWORK_ARGS := --rpc-url http://0.0.0.0:8545 --private-key $(DEFAULT_ANVIL_KEY) --broadcast
 
