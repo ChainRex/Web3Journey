@@ -16,3 +16,9 @@
 [submodule "week3/code/foundry-smart-contract-lottery-f23/lib/chainlink-brownie-contracts"]
 	path = week3/code/foundry-smart-contract-lottery-f23/lib/chainlink-brownie-contracts
 	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
+[submodule "week3/code/foundry-smart-contract-lottery-f23/lib/solmate"]
+	path = week3/code/foundry-smart-contract-lottery-f23/lib/solmate
+	url = https://github.com/transmissions11/solmate
+[submodule "week3/code/foundry-smart-contract-lottery-f23/lib/foundry-devops"]
+	path = week3/code/foundry-smart-contract-lottery-f23/lib/foundry-devops
+	url = https://github.com/ChainAccelOrg/foundry-devops
