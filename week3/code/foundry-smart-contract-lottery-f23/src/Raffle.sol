@@ -2,6 +2,7 @@
 pragma solidity ^0.8.18;
 import {VRFCoordinatorV2Interface} from "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
 import {VRFConsumerBaseV2} from "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
+import {console} from "forge-std/Test.sol";
 
 /**
  * @title A sample Raffle Contract
@@ -158,5 +159,9 @@ contract Raffle is VRFConsumerBaseV2 {
 
     function getLastTimeStamp() external view returns (uint256) {
         return s_lastTimeStamp;
+    }
+
+    function getCurrentBalance() external view returns (uint256) {
+        return address(this).balance;
     }
 }

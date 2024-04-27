@@ -33,7 +33,8 @@ contract RaffleTest is Test {
             gasLane,
             subscriptionId,
             callbackGasLimit,
-            link
+            link,
+
         ) = helperConfig.activeNetworkConfig();
         vm.deal(PLAYER, STARTING_USER_BALANCE);
     }
@@ -138,7 +139,7 @@ contract RaffleTest is Test {
     }
 
     function testPerformUpKeepRevertsIfCheckUpkeepIsFalse() public {
-        uint256 currentBalance = 0;
+        uint256 currentBalance = raffle.getCurrentBalance();
         uint256 numPlayers = 0;
         uint256 raffleState = 0;
         vm.expectRevert(
@@ -178,9 +179,16 @@ contract RaffleTest is Test {
     // fulfillRandomWords //
     ////////////////////////
 
+    modifier skipFork() {
+        if (block.chainid != 31337) {
+            return;
+        }
+        _;
+    }
+
     function testFulfillRandomWordsCanOnlyBeCalledAfterPerformUpkeep(
         uint256 randomRequestId
-    ) public raffleEnteredAndTimePassed {
+    ) public raffleEnteredAndTimePassed skipFork {
         vm.expectRevert("nonexistent request");
         VRFCoordinatorV2Mock(vrfCoordinator).fulfillRandomWords(
             randomRequestId,
@@ -191,6 +199,7 @@ contract RaffleTest is Test {
     function testFulfillRandomWordsPicksAWinnerResetsAndSendsMoney()
         public
         raffleEnteredAndTimePassed
+        skipFork
     {
         uint256 additionalEntrants = 5;
         uint256 startingIndex = 1;
@@ -212,6 +221,7 @@ contract RaffleTest is Test {
         bytes32 requestId = entries[1].topics[1];
         uint256 previousTimeStamps = raffle.getLastTimeStamp();
 
+        // 模拟chainlink节点调用
         VRFCoordinatorV2Mock(vrfCoordinator).fulfillRandomWords(
             uint256(requestId),
             address(raffle)
