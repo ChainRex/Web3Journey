@@ -48,6 +48,8 @@
 ### 编程
 - [Chainlink Foundry Course](https://www.bilibili.com/video/BV13a4y1F7V3)
   - Foundry 抽奖(lesson 9) [代码](week3/code/foundry-smart-contract-lottery-f23)
+  - Foundry ERC20(lesson 10) [代码](week3/code/foundry-erc20-f23)
+  - Foundry NFT(lesson 11) [代码](week3/code/foundry-nft-0) | [NFT](https://testnets.opensea.io/0x03A2fFBAd319287aA1a1D41Da9586abEd613CB7c)
 
 # TODO
 
