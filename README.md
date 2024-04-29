@@ -34,7 +34,7 @@
 ### 阅读
 
 - [WTF Solidity](https://github.com/AmazingAng/WTF-Solidity) 1-30讲（入门、进阶）
-- [Defi Mooc](https://defi-learning.org/f22) Lecture 1/4/5/6 [笔记](week2/Defi Mooc.md)
+- [Defi Mooc](https://defi-learning.org/f22) Lecture 1/4/5/6 [笔记](week2/Defi_Mooc.md)
 
 ### 编程
 
