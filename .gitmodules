@@ -43,3 +43,6 @@
 [submodule "week3/code/foundry-nft-0/lib/foundry-devops"]
 	path = week3/code/foundry-nft-0/lib/foundry-devops
 	url = https://github.com/Cyfrin/foundry-devops
+[submodule "week3/code/foundry-defi-stablecoin-f23/lib/forge-std"]
+	path = week3/code/foundry-defi-stablecoin-f23/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
