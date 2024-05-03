@@ -52,6 +52,11 @@
   - Foundry NFT (lesson 11) [代码](week3/code/foundry-nft-0) | [NFT](https://testnets.opensea.io/0x03A2fFBAd319287aA1a1D41Da9586abEd613CB7c)
   - Foundry Defi (lesson 12) [代码](week3/code/foundry-defi-stablecoin-f23)
 
+## WEEK 4
+
+### 编程
+- [Chainlink Foundry Course](https://www.bilibili.com/video/BV1u8411k7Z7)
+  - Foundry 可升级合约 (lesson 13) [代码](week4/code/foundry-upgrades-f23)
 # TODO
 
 - [ ] 看aave白皮书、合约源码 https://www.bilibili.com/video/BV1UF411Y7oU/ https://www.bilibili.com/video/BV1qR4y177Uk/

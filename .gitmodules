@@ -52,3 +52,15 @@
 [submodule "week3/code/foundry-defi-stablecoin-f23/lib/chainlink-brownie-contracts"]
 	path = week3/code/foundry-defi-stablecoin-f23/lib/chainlink-brownie-contracts
 	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
+[submodule "week4/code/foundry-upgrades-f23/lib/forge-std"]
+	path = week4/code/foundry-upgrades-f23/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "week4/code/foundry-upgrades-f23/lib/openzeppelin-contracts-upgradeable"]
+	path = week4/code/foundry-upgrades-f23/lib/openzeppelin-contracts-upgradeable
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
+[submodule "week4/code/foundry-upgrades-f23/lib/openzeppelin-contracts"]
+	path = week4/code/foundry-upgrades-f23/lib/openzeppelin-contracts
+	url = https://github.com/Openzeppelin/openzeppelin-contracts
+[submodule "week4/code/foundry-upgrades-f23/lib/foundry-devops"]
+	path = week4/code/foundry-upgrades-f23/lib/foundry-devops
+	url = https://github.com/chainaccelorg/foundry-devops
