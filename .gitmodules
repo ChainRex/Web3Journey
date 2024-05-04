@@ -64,3 +64,9 @@
 [submodule "week4/code/foundry-upgrades-f23/lib/foundry-devops"]
 	path = week4/code/foundry-upgrades-f23/lib/foundry-devops
 	url = https://github.com/chainaccelorg/foundry-devops
+[submodule "week4/code/foundry-dao-f23/lib/forge-std"]
+	path = week4/code/foundry-dao-f23/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "week4/code/foundry-dao-f23/lib/openzeppelin-contracts"]
+	path = week4/code/foundry-dao-f23/lib/openzeppelin-contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts
