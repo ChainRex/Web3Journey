@@ -59,6 +59,9 @@
   - Foundry 可升级合约 (lesson 13) [代码](week4/code/foundry-upgrades-f23)
   - Foundry 去中心化自治组织 (lesson 14) [代码](week4/code/foundry-dao-f23)
   - Foundry 合约安全和审计 (lesson 15) [代码](week4/code/denver-security)
+- [Golang 8小时速通](https://www.bilibili.com/video/BV1gf4y1r79E)
+  - Golang基础 [代码](week4/code/GolangStudy)
+
 # TODO
 
 - [ ] 看aave白皮书、合约源码 https://www.bilibili.com/video/BV1UF411Y7oU/ https://www.bilibili.com/video/BV1qR4y177Uk/
