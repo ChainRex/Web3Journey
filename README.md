@@ -60,7 +60,7 @@
   - Foundry 去中心化自治组织 (lesson 14) [代码](week4/code/foundry-dao-f23)
   - Foundry 合约安全和审计 (lesson 15) [代码](week4/code/denver-security)
 - [Golang 8小时速通](https://www.bilibili.com/video/BV1gf4y1r79E)
-  - Golang基础 [代码](week4/code/GolangStudy)
+  - Golang基础 [代码](week4/code/GolangStudy/basic)
 
 # TODO
 
