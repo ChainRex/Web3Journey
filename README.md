@@ -63,6 +63,12 @@
   - Golang基础 [代码](week4/code/GolangStudy/basic)
   - Golang进阶 [代码](week4/code/GolangStudy/advanced)
 
+## WEEK 5
+
+### 编程
+
+- Golang语法练习项目：即时通信系统 [代码](week5/code/golang-IM-System)
+
 # TODO
 
 - [ ] 看aave白皮书、合约源码 https://www.bilibili.com/video/BV1UF411Y7oU/ https://www.bilibili.com/video/BV1qR4y177Uk/
