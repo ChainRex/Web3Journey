@@ -67,7 +67,8 @@
 
 ### 编程
 
-- Golang语法练习项目：即时通信系统 [代码](week5/code/golang-IM-System)
+- 2小时Golang语法练习项目：即时通信系统 [代码](week5/code/golang-IM-System)
+- 8小时速通gin基础及实战：投票排行榜 [代码](week5/code/gin-ranking) | [演示](http://165.154.46.113:9998/login.html)
 
 # TODO
 
