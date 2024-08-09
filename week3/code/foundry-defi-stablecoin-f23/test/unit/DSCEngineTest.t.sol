@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
-import {Test} from "forge-std/Test.sol";
+import {Test, console} from "forge-std/Test.sol";
 import {DeployDSC} from "../../script/DeployDSC.s.sol";
 import {DecentralizedStableCoin} from "../../src/DecentralizedStableCoin.sol";
 import {DSCEngine} from "../../src/DSCEngine.sol";
@@ -25,7 +25,15 @@ contract DSCEngineTest is Test {
         deployer = new DeployDSC();
         (dsc, engine, config) = deployer.run();
         (ethUsdPriceFeed, btcUsdPriceFeed, weth,,) = config.activeNetworkConfig();
+        vm.deal(USER, STARTING_ERC20_BALANCE);
         ERC20Mock(weth).mint(USER, STARTING_ERC20_BALANCE);
+    }
+
+    modifier onlyAnvil() {
+        if (block.chainid != 31337) {
+            return;
+        }
+        _;
     }
 
     //////////////////////
@@ -45,14 +53,14 @@ contract DSCEngineTest is Test {
     ////////////////
     // Price Test //
     ////////////////
-    function testGetUsdValue() public view {
+    function testGetUsdValue() public view onlyAnvil {
         uint256 ethAmount = 15e18;
         uint256 expectedUsd = 30000e18;
         uint256 actualUsd = engine.getUsdValue(weth, ethAmount);
         assertEq(actualUsd, expectedUsd);
     }
 
-    function testGetTokenAmountFromUsd() public view {
+    function testGetTokenAmountFromUsd() public view onlyAnvil {
         uint256 usdAmount = 100 ether;
         uint256 expectedWeth = 0.05 ether;
         uint256 actualWeth = engine.getTokenAmountFromUsd(weth, usdAmount);
@@ -81,13 +89,16 @@ contract DSCEngineTest is Test {
 
     modifier depositedCollateral() {
         vm.startPrank(USER);
+        uint256 userBalance = ERC20Mock(weth).balanceOf(USER);
+        console.log("USER WETH Balance:", userBalance);
+
         ERC20Mock(weth).approve(address(engine), AMOUNT_COLLATERAL);
         engine.depositCollateral(weth, AMOUNT_COLLATERAL);
         vm.stopPrank();
         _;
     }
 
-    function testCanDepositedCollateralAndGetAccountInfo() public depositedCollateral {
+    function testCanDepositedCollateralAndGetAccountInfo() public onlyAnvil depositedCollateral {
         (uint256 totalDscMinted, uint256 collateralValueInUsd) = engine.getAccountInformation(USER);
         uint256 expectedDepositedAmount = engine.getTokenAmountFromUsd(weth, collateralValueInUsd);
         assertEq(totalDscMinted, 0);

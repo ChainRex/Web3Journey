@@ -3,11 +3,13 @@
  * 稳定机制：算法稳定（类似DAI）
  * 挂钩法币：USD
 
+DSC代币合约：[0x61E8e7Fa02e6FBeE81C0058f2993C2475916aD46](https://sepolia.etherscan.io/address/0x61e8e7fa02e6fbee81c0058f2993c2475916ad46)
+
+DSCEngine:[0xc672dC446154F7630e15d394EF2910E68DfC1F37](https://sepolia.etherscan.io/address/0xc672dc446154f7630e15d394ef2910e68dfc1f37)
+
 **技术栈**
 
 Solidity, Foundry, Chainlink Price Feed
-
-**原理**
 
 - 使用Chainlink价格预言机获取以太币和比特币价格
 - 规定人们只能使用足够的抵押品铸币
