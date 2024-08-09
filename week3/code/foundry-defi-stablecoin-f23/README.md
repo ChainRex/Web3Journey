@@ -1,66 +1,74 @@
-## Foundry
+# 一种锚定美元的去中心化算法稳定币
+ * 外部抵押：ETH & BTC
+ * 稳定机制：算法稳定（类似DAI）
+ * 挂钩法币：USD
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+**技术栈**
 
-Foundry consists of:
+Solidity, Foundry, Chainlink Price Feed
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+**原理**
 
-## Documentation
+- 使用Chainlink价格预言机获取以太币和比特币价格
+- 规定人们只能使用足够的抵押品铸币
+- 当抵押品价值下跌，使得健康因子达到阈值，其他人就可以清算该用户，即使用折扣的稳定币换取用户的抵押品
+- 使用Foundry框架进行单元测试，集成测试，模糊测试和部署
 
-https://book.getfoundry.sh/
+**什么是稳定币？**
 
-## Usage
+稳定币是一种购买力相对稳定的加密货币
 
-### Build
+**稳定币的分类方式**
 
-```shell
-$ forge build
-```
+- 相对稳定性
 
-### Test
+  锚定型：相对于其它事物稳定 e.g. USDT，USDC，DAI
 
-```shell
-$ forge test
-```
+  浮动稳定币：使用不同的机制保持购买力不变 e.g. RAI
 
-### Format
+- 稳定性方法
 
-```shell
-$ forge fmt
-```
+  受治理的稳定币：需要中心化的组织人工干预铸币和销毁 e.g. USDC，USDT，TUSD
 
-### Gas Snapshots
+  算法稳定币：无需人工干预，通过算法决定铸币和销毁 e.g. DAI，Frax，RAI，UST
 
-```shell
-$ forge snapshot
-```
+- 抵押品类型
 
-### Anvil
+  外部抵押品：例如抵押美元（USDC）或抵押以太等多种资产（DAI）
 
-```shell
-$ anvil
-```
+  内部抵押品：Luna/Terra（UST）
 
-### Deploy
+**什么是DAI？**
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+将ETH或其它加密货币作为抵押物存入具有DAI算法的智能合约，根据当前的抵押物对美元价格铸造一些DAI，这些DAI的价值只能比抵押物的价值更少。当需要赎回抵押物时，需要将DAI交还给智能合约，合约会销毁这些DAI，然后使用当前抵押物的价格计算应该返还多少抵押物。
 
-### Cast
+该协议需要收取2%的稳定性费用，如果无法支付稳定性费用或抵押品价值下跌，使得抵押品的价值低于铸造的DAI价值（或者是某个阈值），这些抵押品就可能被清算
 
-```shell
-$ cast <subcommand>
-```
+**健康因子**
 
-### Help
+抵押品价值*清算阈值（假定为50%）/稳定币价值，当该值小于1时，将可能被清算，也就是需要至少两倍的超额抵押
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+**清算**
+
+清算者可以获得偿还债务10%价值的额外抵押物奖励
+
+**已知的隐患**
+
+如果抵押物价格暴跌，导致抵押率低于100%，这将无法激励清算员
+
+**模糊测试**
+
+将随机数据提供给系统，以尝试破坏系统中的不变量（始终保持的属性）。在Foundry框架中，只需要往测试函数传入变量即可，该变量会在每次运行时随机变化，尝试破坏代码中的不变量
+
+在该项目中，关注的不变量有以下这些：
+
+- 稳定币总供应量应该小于抵押品总价值
+- View函数不应该回滚（这是大部分协议都应该有的）
+
+模糊测试具体还可分为以下两种：
+
+- 无状态模糊测试：每次测试都是独立的
+- 有状态模糊测试：上一次运行的结束状态是下一次运行的起始状态，在Foundry框架中，将测试合约继承StdInvariant，并使用函数targetContract指定目标合约，Foundry将多次随机运行合约中不同的函数并使用不同的参数
+
+在Foundry中，可以使用Handler方式进行测试，它可以让函数按一定的规则、顺序进行调用，缩小测试范围，增加发现bug的概率。具体而言，可以使用随机种子作为参数，并在函数中合理使用该随机种子，既可以保证随机性，也能限制随机的范围。例如，如果直接将待存入的抵押品的地址作为函数参数，那么该地址的随机范围过大，会不断导致回滚，此时将随机种子作为参数，并在函数中将种子取余数，得到抵押品数组的下标，可以有效避免无意义的调用。
+
